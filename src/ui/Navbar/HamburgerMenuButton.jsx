@@ -1,4 +1,4 @@
-import Button from "../../ui/Button";
+import Button from "../Button";
 import { Menu, X } from "lucide-react";
 
 function HamburgerMenuButton({ isOpen, setIsOpen }) {
