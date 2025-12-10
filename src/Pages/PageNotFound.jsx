@@ -1,5 +1,5 @@
-import Button from "./Button";
-import Navbar from "./Navbar/Navbar";
+import Button from "../ui/Button";
+import Navbar from "../ui/Navbar/Navbar";
 
 function PageNotFound() {
 	return (

@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 import AppLayout from "./ui/AppLayout";
 import Homepage from "./Pages/Homepage/Homepage";
-import PageNotFound from "./ui/PageNotFound";
+import PageNotFound from "./Pages/PageNotFound";
 
 const routes = [
 	{
