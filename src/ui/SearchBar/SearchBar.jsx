@@ -8,14 +8,14 @@ const MOCK_RESULTS = [
 	{ id: "solana", name: "Solana", symbol: "SOL", price: "145.50" },
 ];
 
-function SearchBar({ showPriceAlways = "true" }) {
+function SearchBar({ showPriceAlways = "true", zIndex = "50" }) {
 	const [query, setQuery] = useState("");
 
 	const showDropdown = query.length > 0;
 
 	return (
 		/* Search wrapper */
-		<div className="relative w-full max-w-xs group z-50">
+		<div className={`relative w-full max-w-xs group z-${zIndex}`}>
 			<div
 				className={` relative flex items-center justify-center w-full max-w-xs bg-surface border border-white/10 rounded-2xl px-4 py-2 transition-all duration-300 
 				 ${showDropdown ? "rounded-b-none border-primary/50" : "border-white/10 rounded-2xl"}

@@ -14,7 +14,7 @@ function Hero() {
 
 			<p className="text-gray-400 text-lg max-w-2xl mx-auto mb-2">A professional tool for real-time price analysis. Fast, clear and modern.</p>
 
-			<SearchBar />
+			<SearchBar zIndex="49" />
 
 			<div className="mt-6 flex justify-center gap-4">
 				<Button variant="primary" onClick={() => navigate("/cryptocurrencies")}>

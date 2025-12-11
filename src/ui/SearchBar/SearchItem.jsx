@@ -17,7 +17,7 @@ const SearchItem = ({ coin, showPriceAlways }) => {
 			<div className={`${showPriceAlways ? "block" : "hidden lg:block"} text-right`}>
 				<p className="text-sm font-mono text-white">${coin.price}</p>
 				{/* placeholder trending*/}
-				<div className="flex items-center justify-end gap-1 text-[10px] text-green-500">
+				<div className="flex items-center justify-end gap-1 text-[10px] text-up">
 					<TrendingUp size={10} /> 2.4%
 				</div>
 			</div>
