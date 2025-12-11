@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../../ui/Button";
 import SearchBar from "../../../ui/SearchBar";
 
 function Hero() {
+	const navigate = useNavigate();
+
 	return (
 		<section id="hero" className="text-center mt-10 flex flex-col items-center">
 			<h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
@@ -14,9 +17,13 @@ function Hero() {
 			<SearchBar />
 
 			<div className="mt-6 flex justify-center gap-4">
-				<Button variant="primary">Get Started</Button>
+				<Button variant="primary" onClick={() => navigate("/cryptocurrencies")}>
+					Get Started
+				</Button>
 
-				<Button variant="secondary">Learn More</Button>
+				<Button variant="secondary" onClick={() => navigate("/about")}>
+					Learn More
+				</Button>
 			</div>
 		</section>
 	);

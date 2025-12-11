@@ -1,5 +1,6 @@
 import { TrendingUp, TrendingDown, Star } from "lucide-react";
 import Button from "../../ui/Button";
+import { useCryptoData } from "../../hooks/useCryptoData";
 
 const MOCK_DATA = [
 	{ id: 1, name: "Bitcoin", symbol: "BTC", price: 95234.2, change: 2.4, marketCap: "1.8T" },
@@ -10,6 +11,19 @@ const MOCK_DATA = [
 ];
 
 function MarketTable() {
+	const { data, isLoading, error } = useCryptoData();
+
+	if (isLoading) {
+		return <div className="text-center py-20 text-gray-400 animate-pulse">Loading...</div>;
+	}
+
+	if (error) {
+		return <div className="text-center py-20 text-red-400">An ERROR occurred: {error}.</div>;
+	}
+
+	/* for false positive request ok status */
+	const safeData = Array.isArray(data) ? data : [];
+
 	return (
 		<section id="marketTable" className="flex flex-col justify-center items-center gap-4 mb-10">
 			<div className="w-full bg-surface border border-white/5 rounded-xl overflow-hidden shadow-xl mt-10 ">
@@ -34,10 +48,10 @@ function MarketTable() {
 						</thead>
 
 						<tbody className="divide-y divide-white/5">
-							{MOCK_DATA.map((coin, index) => (
+							{safeData.map((coin) => (
 								<tr key={coin.id} className="group hover:bg-surface-hover transition-colors duration-200">
 									{/* Number */}
-									<td className="px-6 py-4 text-gray-500 font-mono text-sm">{index + 1}</td>
+									<td className="px-6 py-4 text-gray-500 font-mono text-sm">{coin.market_cap_rank}</td>
 
 									{/* Name and SYmbol */}
 									<td className="px-6 py-4">
@@ -55,19 +69,19 @@ function MarketTable() {
 
 									{/* Price */}
 									<td className="px-6 py-4 text-right font-medium text-white font-mono">
-										${coin.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+										${coin.current_price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
 									</td>
 
 									{/* Change in 24h*/}
 									<td className={`px-6 py-4 text-right font-medium ${coin.change >= 0 ? "text-color-up" : "text-color-down"}`}>
 										<div className="flex items-center justify-end gap-1">
-											{coin.change >= 0 ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
-											{Math.abs(coin.change)}%
+											{coin.price_change_percentage_24h >= 0 ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
+											{coin.price_change_percentage_24h.toFixed(2)}%
 										</div>
 									</td>
 
 									{/* Market Cap (hidden on mobile) */}
-									<td className="px-6 py-4 text-right text-gray-400 text-sm hidden md:table-cell">${coin.marketCap}</td>
+									<td className="px-6 py-4 text-right text-gray-400 text-sm hidden md:table-cell">${coin.market_cap.toLocaleString()}</td>
 
 									{/* Favourite  */}
 									<td className="px-6 py-4 text-center">
