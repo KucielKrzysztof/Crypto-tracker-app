@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import HamburgerMenuButton from "./HamburgerMenuButton";
-import SearchBar from "../SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 
 function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ function Navbar() {
 						<Logo />
 					</div>
 					<div id="searchbar-wrapper" className="hidden md:block absolute left-1/2 transform -translate-x-1/2  w-50 lg:w-full max-w-xs ">
-						<SearchBar />
+						<SearchBar showPriceAlways={false} />
 					</div>
 					<div id="menu-wrapper" className="flex items-center justify-end  min-w-[150px] gap-4 z-10 ">
 						<DesktopMenu /> {/* will be hidden on mobile screens */}

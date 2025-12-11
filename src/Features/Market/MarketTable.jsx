@@ -1,20 +1,20 @@
 import { TrendingUp, TrendingDown, Star } from "lucide-react";
 import Button from "../../ui/Button";
-import { useCryptoData } from "../../hooks/useCryptoData";
-
-const MOCK_DATA = [
-	{ id: 1, name: "Bitcoin", symbol: "BTC", price: 95234.2, change: 2.4, marketCap: "1.8T" },
-	{ id: 2, name: "Ethereum", symbol: "ETH", price: 3450.15, change: -1.2, marketCap: "420B" },
-	{ id: 3, name: "Solana", symbol: "SOL", price: 145.5, change: 5.7, marketCap: "65B" },
-	{ id: 4, name: "Tether", symbol: "USDT", price: 1.0, change: 0.01, marketCap: "103B" },
-	{ id: 5, name: "Binance Coin", symbol: "BNB", price: 590.2, change: -0.5, marketCap: "87B" },
-];
+import { useCryptoData } from "./hooks/useCryptoData";
+import { useNavigate } from "react-router-dom";
+import Spinner from "../../ui/Spinner";
 
 function MarketTable() {
-	const { data, isLoading, error } = useCryptoData();
+	const { data, isPending, error } = useCryptoData();
+	const navigate = useNavigate();
 
-	if (isLoading) {
-		return <div className="text-center py-20 text-gray-400 animate-pulse">Loading...</div>;
+	if (isPending) {
+		return (
+			<div className="flex flex-col items-center justify-center py-20 gpa-4">
+				<Spinner size={48} />
+				<p className="text-gray-400 font-mono text-sm animate-pulse">Loading data...</p>
+			</div>
+		);
 	}
 
 	if (error) {
@@ -48,7 +48,8 @@ function MarketTable() {
 						</thead>
 
 						<tbody className="divide-y divide-white/5">
-							{safeData.map((coin) => (
+							{/* only first 5 crypto coins */}
+							{safeData.slice(0, 5).map((coin) => (
 								<tr key={coin.id} className="group hover:bg-surface-hover transition-colors duration-200">
 									{/* Number */}
 									<td className="px-6 py-4 text-gray-500 font-mono text-sm">{coin.market_cap_rank}</td>
@@ -95,7 +96,9 @@ function MarketTable() {
 					</table>
 				</div>
 			</div>
-			<Button variant="secondary">See More Coins</Button>
+			<Button onClick={() => navigate("/cryptocurrencies")} variant="secondary">
+				See More Coins
+			</Button>
 		</section>
 	);
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../../ui/Button";
-import SearchBar from "../../../ui/SearchBar";
+import SearchBar from "../../../ui/SearchBar/SearchBar";
 
 function Hero() {
 	const navigate = useNavigate();
