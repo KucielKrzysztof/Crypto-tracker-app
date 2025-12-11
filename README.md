@@ -1,33 +1,30 @@
-# todo
+# Todo
 
-Dashboard (Strona Główna)
+- [ ] README.md improvements
 
-Tabela Kryptowalut: Lista Top 100 z sortowaniem po cenie, zmianie 24h, kapitalizacji rynkowej (Market Cap) i wolumenie.
+- **Crypto Table:** Top 100 list with sorting by price, 24h change, Market Cap, and volume.
 
-Sparklines: Małe wykresy liniowe przy każdej monecie pokazujące trend ostatnich 7 dni.
+- **Sparklines:** Small line charts for each coin displaying 7-day trends (implement as a reusable component).
 
-Global Market Data: Pasek na samej górze pokazujący ogólną kondycję rynku (całkowita kapitalizacja, dominacja Bitcoina, ceny gazu ETH).
+- **Coin Details Page**
+  - **Advanced Chart:** Candlestick chart (ideally TradingView integration) with adjustable time intervals (1h, 1d, 1w, 1m, 1y, All).
+  - **Converter:** Quick calculator for converting values (e.g., 0.5 BTC to USD/PLN).
+  - **Key Metrics:** Circulating Supply, All-Time High (ATH), All-Time Low (ATL).
+  - **About:** Brief description of the project with links to the whitepaper and official website.
 
-Strona Szczegółów Monety (Coin Details)
+- **Search Bar**
+  - _Current status: UI only._
+  - Planned: Instant search supporting both full names (e.g., Bitcoin) and tickers (e.g., BTC) with Debouncing.
 
-        Zaawansowany Wykres: Najlepiej integrowany z TradingView (świecowy), z możliwością zmiany interwałów (1h, 1d, 1w, 1m, 1y, All).
+- **Watchlist (Favorites)**
+  - _Current status: UI only._
+  - Planned: Persistence via LocalStorage.
+  - Ability to "star" coins to create a personalized list of tracked assets.
 
-        Kalkulator (Converter): Szybkie przeliczanie np. 0.5 BTC na PLN/USD.
+# Tech Stack
 
-        Metryki: Supply (podaż), All-Time High (ATH), All-Time Low (ATL).
-
-        O Projekcie: Krótki opis, czym jest dana kryptowaluta i linki do whitepaper/strony oficjalnej.
-
-Wyszukiwarka (Search Bar)
-
-        instant search i obsługiwać zarówno pełne nazwy (Bitcoin), jak i tickery (BTC). + Debouncing!
-
-## todo optional
-
-Watchlist (Ulubione)
-Możliwość "gwiazdkowania" monet, aby stworzyć spersonalizowaną listę obserwowanych
-
-
-# tech
-lucide-react - icons
-css - tailwind
+- **Frontend:** React 19, Vite
+- **Styling:** Tailwind CSS v4, Lucide React
+- **State & API:** TanStack Query (React Query)
+- **Routing:** React Router DOM
+- **Charts:** Recharts (#todo)
