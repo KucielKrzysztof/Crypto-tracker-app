@@ -19,7 +19,7 @@ function MarketTable() {
 	}
 
 	if (error) {
-		return <div className="text-center py-20 text-red-400">An ERROR occurred: {error}.</div>;
+		return <div className="text-center py-20 text-red-400">An ERROR occurred: {error.message}.</div>;
 	}
 
 	/* for false positive request ok status */
