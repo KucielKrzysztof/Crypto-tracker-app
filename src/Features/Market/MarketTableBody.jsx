@@ -1,5 +1,6 @@
 import { TrendingUp, TrendingDown, Star } from "lucide-react";
 import Button from "../../ui/Button";
+import Sparkline from "../../ui/Sparkline";
 
 function MarketTableBody({ data }) {
 	return (
@@ -11,6 +12,7 @@ function MarketTableBody({ data }) {
 						<th className="px-6 py-4 font-medium">Name</th>
 						<th className="px-6 py-4 font-medium text-right">Price</th>
 						<th className="px-6 py-4 font-medium text-right">24h %</th>
+						<th className="px-6 py-4 font-medium text-center hidden lg:table-cell">Last 7 Days</th>
 						<th className="px-6 py-4 font-medium text-right hidden md:table-cell">Market Cap</th>
 						<th className="px-6 py-4 font-medium text-center">Action</th>
 					</tr>
@@ -48,6 +50,11 @@ function MarketTableBody({ data }) {
 									{coin.price_change_percentage_24h >= 0 ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
 									{coin.price_change_percentage_24h.toFixed(2)}%
 								</div>
+							</td>
+
+							{/* Sparklines of 7 days */}
+							<td className="px-6 py-4 hidden lg:block">
+								<Sparkline data={coin.sparkline_in_7d?.price} change={coin.price_change_percentage_24h} />
 							</td>
 
 							{/* Market Cap (hidden on mobile) */}
