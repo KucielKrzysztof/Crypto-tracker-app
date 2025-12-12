@@ -5,7 +5,7 @@ import Spinner from "../../ui/Spinner";
 import MarketTableHeader from "./MarketTableHeader";
 import MarketTableBody from "./MarketTableBody";
 
-function MarketTable() {
+function MarketTable({ limit = 20, title = "", showButton = true }) {
 	const { data, isPending, error } = useCryptoData();
 	const navigate = useNavigate();
 
@@ -28,12 +28,14 @@ function MarketTable() {
 	return (
 		<section id="marketTable" className="flex flex-col justify-center items-center gap-4 mb-10">
 			<div className="w-full bg-surface border border-white/5 rounded-xl overflow-hidden shadow-xl mt-10 ">
-				<MarketTableHeader />
-				<MarketTableBody data={safeData} />
+				<MarketTableHeader title={title} />
+				<MarketTableBody data={safeData.slice(0, limit)} />
 			</div>
-			<Button onClick={() => navigate("/cryptocurrencies")} variant="secondary">
-				See More Coins
-			</Button>
+			{showButton && (
+				<Button onClick={() => navigate("/cryptocurrencies")} variant="secondary">
+					See more
+				</Button>
+			)}
 		</section>
 	);
 }

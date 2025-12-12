@@ -2,9 +2,9 @@
 
 - [ ] README.md improvements
 
-- **Crypto Table:** Top 100 list with sorting by price, 24h change, Market Cap, and volume.
-
-- **Sparklines:** Small line charts for each coin displaying 7-day trends (implement as a reusable component).
+- **Crypto Table:**
+  - _Current status: we get 20 coins max, no pagination, no sorting._
+  - Top 100 list with sorting by price, 24h change, Market Cap, and volume.
 
 - **Coin Details Page**
   - **Advanced Chart:** Candlestick chart (ideally TradingView integration) with adjustable time intervals (1h, 1d, 1w, 1m, 1y, All).

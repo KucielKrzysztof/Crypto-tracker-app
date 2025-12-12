@@ -6,7 +6,7 @@ function Homepage() {
 	return (
 		<div>
 			<Hero />
-			<MarketTable />
+			<MarketTable title="Top 5 coins" limit={5} />
 			<About />
 		</div>
 	);

@@ -19,8 +19,7 @@ function MarketTableBody({ data }) {
 				</thead>
 
 				<tbody className="divide-y divide-white/5">
-					{/* only first 5 crypto coins */}
-					{data.slice(0, 5).map((coin) => (
+					{data.map((coin) => (
 						<tr key={coin.id} className="group hover:bg-surface-hover transition-colors duration-200">
 							{/* Number */}
 							<td className="px-6 py-4 text-gray-500 font-mono text-sm">{coin.market_cap_rank}</td>
@@ -53,7 +52,7 @@ function MarketTableBody({ data }) {
 							</td>
 
 							{/* Sparklines of 7 days */}
-							<td className="px-6 py-4 hidden lg:block">
+							<td className="px-6 py-4 hidden lg:table-cell">
 								<Sparkline data={coin.sparkline_in_7d?.price} change={coin.price_change_percentage_24h} />
 							</td>
 
