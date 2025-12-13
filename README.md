@@ -5,6 +5,7 @@
 - **Crypto Table:**
   - _Current status: we get 20 coins max, no pagination, no sorting._
   - Top 100 list with sorting by price, 24h change, Market Cap, and volume.
+  - Dynamic routing for coin detailed page(click on table row to go to coin details).
 
 - **Coin Details Page**
   - **Advanced Chart:** Candlestick chart (ideally TradingView integration) with adjustable time intervals (1h, 1d, 1w, 1m, 1y, All).
@@ -25,6 +26,6 @@
 
 - **Frontend:** React 19, Vite
 - **Styling:** Tailwind CSS v4, Lucide React
-- **State & API:** TanStack Query (React Query)
+- **State & API:** TanStack Query (React Query), Axios
 - **Routing:** React Router DOM
 - **Charts:** Recharts (#todo)

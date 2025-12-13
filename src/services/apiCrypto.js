@@ -13,3 +13,18 @@ export async function getCryptoData() {
 		throw new Error("Connection error");
 	}
 }
+
+export async function getCoinDetails(id) {
+	if (!id) return null;
+	try {
+		const res = await axios.get(
+			`https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true`
+		);
+		return res.data;
+	} catch (error) {
+		if (error.response) {
+			throw new Error(error.response.data?.status?.error_message || ` API Error: ${error.response.status}`);
+		}
+		throw new Error("Connection error");
+	}
+}

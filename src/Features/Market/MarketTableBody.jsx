@@ -1,8 +1,15 @@
 import { TrendingUp, TrendingDown, Star } from "lucide-react";
 import Button from "../../ui/Button";
 import Sparkline from "../../ui/Sparkline";
+import { useNavigate } from "react-router-dom";
 
 function MarketTableBody({ data }) {
+	const navigate = useNavigate();
+
+	function handleRowClick(coinId) {
+		navigate(`/coin/${coinId}`);
+	}
+
 	return (
 		<div className="overflow-x-auto">
 			<table className="w-full text-left border-collapse">
@@ -20,7 +27,7 @@ function MarketTableBody({ data }) {
 
 				<tbody className="divide-y divide-white/5">
 					{data.map((coin) => (
-						<tr key={coin.id} className="group hover:bg-surface-hover transition-colors duration-200">
+						<tr key={coin.id} onClick={() => handleRowClick(coin.id)} className="group hover:bg-surface-hover transition-colors duration-200">
 							{/* Number */}
 							<td className="px-6 py-4 text-gray-500 font-mono text-sm">{coin.market_cap_rank}</td>
 

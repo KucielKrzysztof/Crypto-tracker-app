@@ -6,6 +6,7 @@ import PageNotFound from "./Pages/PageNotFound";
 import Cryptocurrencies from "./Pages/Cryptocurrencies/Cryptocurrencies";
 import About from "./Pages/About/About";
 import News from "./Pages/News/News";
+import CoinPage from "./Pages/CoinPage/CoinPage";
 
 const routes = [
 	{
@@ -16,6 +17,7 @@ const routes = [
 			{ path: "cryptocurrencies", element: <Cryptocurrencies /> },
 			{ path: "about", element: <About /> },
 			{ path: "news", element: <News /> },
+			{ path: "coin/:id", element: <CoinPage /> },
 		],
 	},
 	{ path: "*", element: <PageNotFound /> },
