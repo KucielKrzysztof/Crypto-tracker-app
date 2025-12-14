@@ -25,7 +25,6 @@ function Footer() {
 					<div className="flex gap-4">
 						<SocialIcon href="https://github.com/KucielKrzysztof" icon={<Github size={18} />} />
 						<SocialIcon href="https://kucielkrzysztof.github.io/kucieldev-portfolio/" icon={<Globe size={18} />} />
-						<SocialIcon href="mailto:krzysztof.kuciel1@gmail.com" icon={<Mail size={18} />} />
 					</div>
 				</div>
 			</div>

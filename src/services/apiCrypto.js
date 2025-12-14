@@ -40,3 +40,15 @@ export async function getGlobalData() {
 		throw new Error("Connection error");
 	}
 }
+
+export async function searchCoins(query) {
+	if (!query) return [];
+
+	try {
+		const res = await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}`);
+		return res.data.coins;
+	} catch (error) {
+		console.error("Search error:", error);
+		throw error;
+	}
+}

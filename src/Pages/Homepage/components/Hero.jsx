@@ -6,7 +6,7 @@ function Hero() {
 	const navigate = useNavigate();
 
 	return (
-		<section id="hero" className="text-center mt-10 flex flex-col items-center">
+		<section id="hero" className="text-center mt-10 flex flex-col items-center relative z-20">
 			<h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
 				Track the market <br className="hidden md:block" />
 				<span className="text-transparent bg-clip-text bg-brand-gradient animate-pulse">Crypto Tracker</span>
@@ -14,7 +14,7 @@ function Hero() {
 
 			<p className="text-gray-400 text-lg max-w-2xl mx-auto mb-2">A professional tool for real-time price analysis. Fast, clear and modern.</p>
 
-			<SearchBar zIndex="49" />
+			<SearchBar zIndex={49} />
 
 			<div className="mt-6 flex justify-center gap-4">
 				<Button variant="primary" onClick={() => navigate("/cryptocurrencies")}>
