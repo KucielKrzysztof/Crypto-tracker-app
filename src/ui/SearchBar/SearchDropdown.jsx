@@ -20,7 +20,7 @@ function SearchDropdown({ results, isPending, error, showPriceAlways, onSelect }
 			<Container>
 				<div className="p-4 flex items-center justify-center gap-2 text-red-400">
 					<AlertCircle size={18} />
-					<p className="text-xs">Something went wrong.</p>
+					<p className="text-xs">Free API limit :/</p>
 				</div>
 			</Container>
 		);
