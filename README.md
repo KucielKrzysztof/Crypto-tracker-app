@@ -17,10 +17,6 @@
   - **Key Metrics:** Circulating Supply, All-Time High (ATH), All-Time Low (ATL).
   - **About:** Brief description of the project with links to the whitepaper and official website.
 
-- **Search Bar**
-  - _Current status: UI only._
-  - Planned: Instant search supporting both full names (e.g., Bitcoin) and tickers (e.g., BTC) with Debouncing - global search!.
-
 - **Watchlist (Favorites)**
   - _Current status: UI only._
   - Planned: Persistence via LocalStorage.
