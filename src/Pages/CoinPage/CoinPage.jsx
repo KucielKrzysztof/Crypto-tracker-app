@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useCoinDetails } from "../../Features/Market/hooks/useCoinDetails";
 import Spinner from "../../ui/Spinner";
 import CoinHeader from "./components/CoinHeader";
