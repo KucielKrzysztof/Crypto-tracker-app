@@ -1,5 +1,11 @@
+import PageUnderConstruction from "../../ui/PageUnderConstruction";
+
 function News() {
-	return <div>News PAge</div>;
+	return (
+		<div>
+			<PageUnderConstruction name="News Page" />
+		</div>
+	);
 }
 
 export default News;

@@ -1,21 +1,25 @@
+> [!IMPORTANT]
+> **API LIMITATIONS:** This project uses the free tier of the **CoinGecko API**.
+> There is a strict limit on requests per minute (approx. 10-30 req/min).
+> If data stops loading or you see errors, please wait a moment before refreshing.
+>
+> _Note: Global Market Data is cached for 15 minutes to preserve API limits._
+
 # Todo
 
-- [ ] README.md improvements
-
 - **Crypto Table:**
-  - _Current status: we get 20 coins max, no pagination, no sorting._
-  - Top 100 list with sorting by price, 24h change, Market Cap, and volume.
-  - Dynamic routing for coin detailed page(click on table row to go to coin details).
+  - _Current status: Real-time global metrics, Pagination_
+  - sorting, filtering.
 
 - **Coin Details Page**
-  - **Advanced Chart:** Candlestick chart (ideally TradingView integration) with adjustable time intervals (1h, 1d, 1w, 1m, 1y, All).
+  - _Current status: coind data with chart for past 7days_
   - **Converter:** Quick calculator for converting values (e.g., 0.5 BTC to USD/PLN).
   - **Key Metrics:** Circulating Supply, All-Time High (ATH), All-Time Low (ATL).
   - **About:** Brief description of the project with links to the whitepaper and official website.
 
 - **Search Bar**
   - _Current status: UI only._
-  - Planned: Instant search supporting both full names (e.g., Bitcoin) and tickers (e.g., BTC) with Debouncing.
+  - Planned: Instant search supporting both full names (e.g., Bitcoin) and tickers (e.g., BTC) with Debouncing - global search!.
 
 - **Watchlist (Favorites)**
   - _Current status: UI only._

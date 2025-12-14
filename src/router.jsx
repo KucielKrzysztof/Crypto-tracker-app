@@ -1,12 +1,15 @@
 import { Navigate } from "react-router-dom";
+import { lazy } from "react";
 
 import AppLayout from "./ui/AppLayout";
-import Homepage from "./Pages/Homepage/Homepage";
-import PageNotFound from "./Pages/PageNotFound";
-import Cryptocurrencies from "./Pages/Cryptocurrencies/Cryptocurrencies";
-import About from "./Pages/About/About";
-import News from "./Pages/News/News";
-import CoinPage from "./Pages/CoinPage/CoinPage";
+
+const Homepage = lazy(() => import("./Pages/Homepage/Homepage"));
+const Cryptocurrencies = lazy(() => import("./Pages/Cryptocurrencies/Cryptocurrencies"));
+const About = lazy(() => import("./Pages/About/About"));
+const News = lazy(() => import("./Pages/News/News"));
+const CoinPage = lazy(() => import("./Pages/CoinPage/CoinPage"));
+
+const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
 
 const routes = [
 	{

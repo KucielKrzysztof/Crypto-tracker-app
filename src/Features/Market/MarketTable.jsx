@@ -5,11 +5,19 @@ import Spinner from "../../ui/Spinner";
 import MarketTableHeader from "./MarketTableHeader";
 import MarketTableBody from "./MarketTableBody";
 
-function MarketTable({ limit = 20, title = "", showButton = true }) {
-	const { data, isPending, error } = useCryptoData();
+function MarketTable({ limit = 20, title = "", showButton = true, page = 1, externalData = null, externalIsLoading = null, externalError = null }) {
 	const navigate = useNavigate();
+	const isControlled = externalData !== null;
 
-	if (isPending) {
+	// if no external data fetch!
+	const { data: internalData, isPending: internalIsLoading, error: internalError } = useCryptoData(page, { enabled: !isControlled });
+
+	// setting values depending on source of info(external, internal)
+	const data = isControlled ? externalData : internalData;
+	const isLoading = isControlled ? externalIsLoading : internalIsLoading;
+	const error = isControlled ? externalError : internalError;
+
+	if (isLoading) {
 		return (
 			<div className="flex flex-col items-center justify-center py-20 gap-4">
 				<Spinner size={48} />

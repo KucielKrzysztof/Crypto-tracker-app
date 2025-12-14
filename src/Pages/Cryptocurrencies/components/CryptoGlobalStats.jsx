@@ -1,13 +1,33 @@
-import { BarChart3, Globe, Activity } from "lucide-react";
+import { useGlobalData } from "../../../Features/Market/hooks/useGlobalData";
+import CryptoGlobalSkeleton from "./CryptoGlobalSkeleton";
+import { prepareStatsData } from "../../../helpers/prepareStatsData";
 
 function CryptoGlobalStats() {
-	/* just ui now */
+	const { data, isPending, error } = useGlobalData();
+
+	/* if isPending load "Skeleton" */
+	if (isPending) {
+		return <CryptoGlobalSkeleton />;
+	}
+
+	/* if error hide component */
+	if (error || !data) return null;
+
+	const stats = prepareStatsData(data);
+
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-			<StatCard icon={<Globe size={20} className="text-blue-400" />} label="Market Cap" value="$2.42T" change="+1.2%" isPositive={true} />
-			<StatCard icon={<Activity size={20} className="text-orange-400" />} label="24h Volume" value="$84.2B" change="-5.4%" isPositive={false} />
-			<StatCard icon={<BarChart3 size={20} className="text-purple-400" />} label="BTC Dominance" value="52.4%" subValue="ETH: 17.1%" />
-			<StatCard icon={<Globe size={20} className="text-green-400" />} label="Active Coins" value="12,402" subValue="Exchanges: 402" />
+			{stats.map((stat, index) => (
+				<StatCard
+					key={index}
+					icon={stat.icon}
+					label={stat.label}
+					value={stat.value}
+					change={stat.change}
+					isPositive={stat.isPositive}
+					subValue={stat.subValue}
+				/>
+			))}
 		</div>
 	);
 }
@@ -18,10 +38,12 @@ function StatCard({ icon, label, value, change, isPositive, subValue }) {
 				<div className="p-2 bg-white/5 rounded-lg">{icon}</div>
 				<span className="text-gray-400 text-sm font-medium">{label}</span>
 			</div>
-			<div className="flex items-end gap-2">
-				<span className="text-xl font-bold text-white">{value}</span>
-				{change && <span className={`text-xs font-medium mb-1 ${isPositive ? "text-green-500" : "text-red-500"}`}>{change}</span>}
-				{subValue && <span className="text-xs text-gray-500 mb-1">{subValue}</span>}
+			<div>
+				<div className="flex items-end gap-2">
+					<span className="text-xl font-bold text-white">{value}</span>
+				</div>
+				{change && <p className={`text-xs font-medium mb-1 ${isPositive ? "text-up" : "text-down"}`}>{change}</p>}
+				{subValue && <p className="text-xs text-gray-500 mb-1">{subValue}</p>}
 			</div>
 		</div>
 	);
