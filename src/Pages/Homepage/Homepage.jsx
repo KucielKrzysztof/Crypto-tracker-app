@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 
 function Homepage() {
 	return (
-		<div>
+		<div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
 			<Hero />
 			<MarketTable title="Top 5 coins" limit={5} />
 			<About />
