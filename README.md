@@ -15,7 +15,7 @@
 
 - **Search Bar**
   - _Current status: UI only._
-  - Planned: Instant search supporting both full names (e.g., Bitcoin) and tickers (e.g., BTC) with Debouncing.
+  - Planned: Instant search supporting both full names (e.g., Bitcoin) and tickers (e.g., BTC) with Debouncing - global search!.
 
 - **Watchlist (Favorites)**
   - _Current status: UI only._
