@@ -8,7 +8,10 @@ export const useGlobalData = () => {
 		staleTime: 1000 * 60 * 15,
 		gcTime: 1000 * 60 * 30,
 		refetchOnWindowFocus: false,
-		retry: 2,
+		retry: (failureCount, error) => {
+			if (error?.response?.status === 429) return false;
+			return failureCount < 2;
+		},
 	});
 	return { isPending, data, error };
 };

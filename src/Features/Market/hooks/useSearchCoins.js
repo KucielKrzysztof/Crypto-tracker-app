@@ -7,7 +7,10 @@ export const useSearchCoins = (query) => {
 		queryFn: () => searchCoins(query),
 		enabled: !!query && query.length >= 3,
 		staleTime: 1000 * 60 * 2,
-		retry: false,
+		retry: (failureCount, error) => {
+			if (error?.response?.status === 429) return false;
+			return failureCount < 2;
+		},
 	});
 
 	return { isPending, data, error };
