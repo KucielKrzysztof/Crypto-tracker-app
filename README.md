@@ -115,20 +115,7 @@ npm run dev
 
 ## Todo
 
-- **Crypto Table:**
-  - _Current status: Real-time global metrics, Pagination_
-  - sorting, filtering.
-
-- **Coin Details Page**
-  - _Current status: coind data with chart for past 7days_
-  - **Converter:** Quick calculator for converting values (e.g., 0.5 BTC to USD/PLN).
-  - **Key Metrics:** Circulating Supply, All-Time High (ATH), All-Time Low (ATL).
-  - **About:** Brief description of the project with links to the whitepaper and official website.
-
-- **Watchlist (Favorites)**
-  - _Current status: UI only._
-  - Planned: Persistence via LocalStorage.
-  - Ability to "star" coins to create a personalized list of tracked assets.
+- News Page
 
 ### Data:
 

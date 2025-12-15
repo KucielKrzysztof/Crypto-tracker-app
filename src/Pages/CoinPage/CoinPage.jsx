@@ -6,6 +6,8 @@ import CoinAbout from "./components/CoinAbout";
 import CoinMarketStats from "./components/CoinMarketStats";
 import CoinChart from "./components/CoinChart";
 import ButtonBack from "../../ui/ButtonBack";
+import CoinConverter from "../../Features/Converter/CoinConverter";
+import CoinPricePerformence from "./components/CoinPricePerformence";
 
 function CoinPage() {
 	const { id } = useParams();
@@ -25,8 +27,11 @@ function CoinPage() {
 
 	return (
 		<div className="animate-in fade-in duration-500 pb-20">
-			<CoinHeader coin={coin} />
-			<ButtonBack />
+			<div className="mb-6">
+				<ButtonBack />
+			</div>
+			<CoinHeader coin={coin} key={coin.id} />
+
 			{/* Content Grid */}
 			<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 				<div className="lg:col-span-2 space-y-6">
@@ -34,9 +39,13 @@ function CoinPage() {
 						<h3 className="text-xl font-bold mb-4">Price Chart (7 Days)</h3>
 						<CoinChart prices={coin.market_data?.sparkline_7d?.price} color={chartColor} />
 					</div>
+					<CoinConverter coin={coin} />
 					<CoinAbout coin={coin} />
 				</div>
-				<CoinMarketStats coin={coin} />
+				<div className="lg:col-span-1">
+					<CoinMarketStats coin={coin} />
+					<CoinPricePerformence coin={coin} />
+				</div>
 			</div>
 		</div>
 	);
