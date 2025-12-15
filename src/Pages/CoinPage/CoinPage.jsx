@@ -8,6 +8,7 @@ import CoinChart from "./components/CoinChart";
 import ButtonBack from "../../ui/ButtonBack";
 import CoinConverter from "../../Features/Converter/CoinConverter";
 import CoinPricePerformence from "./components/CoinPricePerformence";
+import CoinLinks from "./components/CoinLinks";
 
 function CoinPage() {
 	const { id } = useParams();
@@ -44,6 +45,7 @@ function CoinPage() {
 				</div>
 				<div className="lg:col-span-1">
 					<CoinMarketStats coin={coin} />
+					<CoinLinks coin={coin} />
 					<CoinPricePerformence coin={coin} />
 				</div>
 			</div>

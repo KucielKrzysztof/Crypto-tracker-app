@@ -17,7 +17,7 @@ function CoinConverter({ coin }) {
 				</span>
 			</h3>
 
-			<div className="flex flex-col sm:flex-row items-center gap-4 bg-background p-4 rounded-lg border border-white/5">
+			<div className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/5">
 				<CryptoInput coin={coin} amount={cryptoAmount} onChange={actions.handleCryptoChange} />
 
 				<ConverterIcon />

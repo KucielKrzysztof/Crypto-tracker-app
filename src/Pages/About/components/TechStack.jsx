@@ -1,4 +1,4 @@
-import { Code, Database, Globe, Layout, Zap, Router } from "lucide-react";
+import { Code, Database, Globe, Layout, Zap, Router, Share2 } from "lucide-react";
 import TechBadge from "./TechBadge";
 
 function TechStack() {
@@ -9,12 +9,13 @@ function TechStack() {
 			<div className="relative z-10 text-center">
 				<h2 className="text-2xl font-bold mb-8">Built with Modern Technologies</h2>
 
-				<div className="flex flex-wrap justify-center gap-4 md:gap-8">
+				<div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
 					<TechBadge icon={<Code size={18} />} name="React 19" />
 					<TechBadge icon={<Layout size={18} />} name="Tailwind CSS v4" />
 					<TechBadge icon={<Zap size={18} />} name="Vite" />
 					<TechBadge icon={<Database size={18} />} name="TanStack Query" />
 					<TechBadge icon={<Router size={18} />} name="React Router" />
+					<TechBadge icon={<Share2 size={18} />} name="React Context API" />
 					<TechBadge icon={<Globe size={18} />} name="CoinGecko API" />
 				</div>
 			</div>

@@ -58,7 +58,7 @@ export async function searchCoins(query) {
 }
 
 export async function getCoinsByIds(idArray) {
-	if (!idArray || !idArray.length === 0) return [];
+	if (!idArray || idArray.length === 0) return [];
 	const idString = idArray.join(",");
 
 	try {

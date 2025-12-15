@@ -1,6 +1,6 @@
 # 🚀 Crypto Market Tracker
 
-A modern, cryptocurrency tracking application built with **React 19** and **Vite**. This project provides real-time market data, interactive charts, and deep insights into the crypto world using the CoinGecko API.
+A modern, real-time cryptocurrency tracking application built with **React 19** and **Vite**. This project provides real-time market data, interactive charts, and deep insights into the crypto world using the CoinGecko API.
 
 [![Live Demo](https://img.shields.io/badge/demo-online-darkgreen?style=for-the-badge&logo=globe)](https://vercel-crypto-tracker-app.vercel.app/)
 
@@ -10,8 +10,6 @@ A modern, cryptocurrency tracking application built with **React 19** and **Vite
 > **API LIMITATIONS:** This project uses the free tier of the **CoinGecko API**.
 > There is a strict limit on requests per minute (approx. 10-30 req/min).
 > If data stops loading or you see errors, please wait a moment before refreshing.
->
-> _Note: Global Market Data is cached for 15 minutes to preserve API limits._
 
 ## Table of Contents
 
@@ -35,10 +33,11 @@ A modern, cryptocurrency tracking application built with **React 19** and **Vite
 - **Sparklines:** Visual representation of 7-day price trends directly in the table (using `Recharts`).
 - **Global Metrics:** Tracks total market cap, volume, and BTC/ETH dominance with smart caching.
 - **Pagination:** Server-side pagination for browsing thousands of coins efficiently.
+- **Crypto News:** Auto-updating news feed with fallback data mechanism.
 
 ### Advanced Search
 
-- **Global Search Bar:** Accessible from anywhere in the app (Navbar & Hero).
+- **Global Search Bar:** Debounced search with "smart suggestion" dropdown.
 - **Debouncing:** Implemented custom `useDebounce` hook (500ms) to minimize API calls.
 - **Smart Dropdown:** Shows suggested coins with symbols and ranks. Handles loading, error, and empty states gracefully.
 
@@ -48,9 +47,11 @@ A modern, cryptocurrency tracking application built with **React 19** and **Vite
 - **Interactive Charts:** Area charts visualizing price action over the last 7 days.
 - **Market Stats:** Key metrics like Circulating Supply, Max Supply, and ATH.
 - **Smart Descriptions:** Parses and displays HTML descriptions safely with "Show More/Less" functionality.
+- **Smart Converter:** Real-time crypto-to-fiat conversion (USD, EUR, PLN, GBP, etc.) with bilateral calculation.
 
 ### UI & UX
 
+- **Watchlist System:** Persisted locally favorites list that syncs instantly across the app.
 - **Modern Design:** Built with **Tailwind CSS v4**. Dark mode aesthetic with glassmorphism effects (`backdrop-blur`).
 - **Responsive:** Fully mobile-responsive layout with a custom hamburger menu.
 - **Feedback:** Loading skeletons, spinners, and user-friendly error messages (handling API 429 limits).
@@ -61,8 +62,9 @@ A modern, cryptocurrency tracking application built with **React 19** and **Vite
 
 - **Core:** [React 19](https://react.dev/), [Vite](https://vitejs.dev/)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/), [Lucide React](https://lucide.dev/) (Icons)
-- **State Management & API:** [TanStack Query v5](https://tanstack.com/query/latest) (React Query), [Axios](https://axios-http.com/)
-- **Routing:** [React Router v7](https://reactrouter.com/)
+- **State Management:** [TanStack Query v5](https://tanstack.com/query/latest) (Server State), [React Context API](https://react.dev/learn/passing-data-deeply-with-context) (Global State)
+- **API** [Axios](https://axios-http.com/)
+- **Routing:** [React Router DOM](https://reactrouter.com/)
 - **Charts:** [Recharts](https://recharts.org/)
 
 ---
@@ -111,11 +113,16 @@ npm run dev
 
 ![AboutPage](screenshots/aboutpage.png)
 
+### News Page
+
+![NewsPage](screenshots/newspage.png)
+
 ---
 
 ## Todo
 
-- News Page
+- [x] News Page (Completed)
+- [ ] User Authentication (Future)
 
 ### Data:
 
