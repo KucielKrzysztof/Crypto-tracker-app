@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import Navbar from "../ui/Navbar/Navbar";
 
 function PageNotFound() {
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<Navbar />
@@ -12,7 +15,7 @@ function PageNotFound() {
 					</h1>
 					<div className="font-semibold text-xl">404 - page not found</div>
 					<div className="text-gray-300 mt-2">We're sorry, the page you're trying to access doesn't exist!</div>
-					<Button variant="primary" className="uppercase w-36 mt-12">
+					<Button onClick={() => navigate("/")} variant="primary" className="uppercase w-36 mt-12">
 						Go Home
 					</Button>
 				</div>
